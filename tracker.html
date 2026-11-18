@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi viaje · Layover</title>
+<meta name="description" content="Layover: organiza tu estudio como un viaje. Gana XP, sube de escala y mantén tu racha.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239a6220'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='serif'%3ELy%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Karla:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main>
+
+<div class="wrap" style="padding-top:34px">
+  <div class="sec-head">
+    <div class="kicker">Mi viaje</div>
+    <h2>Tu tracker de estudio</h2>
+    <p id="estado-sesion">Cargando…</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">Escala</div><div class="value" id="st-escala">—</div><div class="bar" aria-hidden="true"><i id="st-barra"></i></div><div class="label" id="st-faltan" style="margin-top:6px"></div></div>
+    <div class="stat"><div class="label">XP total</div><div class="value" id="st-xp">0</div></div>
+    <div class="stat"><div class="label">Racha</div><div class="value" id="st-racha">0 🔥</div></div>
+    <div class="stat"><div class="label">Completadas</div><div class="value" id="st-hechas">0</div></div>
+  </div>
+
+  <form class="add-form" id="form-tarea" aria-label="Agregar tarea">
+    <input type="text" id="t-titulo" placeholder="Nueva tarea, ej: repasar capítulo 3" maxlength="120" required aria-label="Título de la tarea">
+    <select id="t-dif" aria-label="Dificultad">
+      <option value="facil">Fácil · 10 XP</option>
+      <option value="media">Media · 20 XP</option>
+      <option value="dificil">Difícil · 40 XP</option>
+    </select>
+    <span></span>
+    <button class="btn" type="submit">Agregar</button>
+  </form>
+
+  <div class="card ia-box" style="margin-bottom:22px">
+    <h3>🤖 Generador de plan con IA</h3>
+    <p>Cuéntale tu meta o examen y arma las tareas por ti.</p>
+    <form class="row" id="form-ia">
+      <input type="text" id="ia-meta" placeholder="Ej: examen de biología el viernes" maxlength="150" required aria-label="Tu meta o examen">
+      <select id="ia-dias" aria-label="Días disponibles" style="max-width:170px">
+        <option value="1">1 día</option><option value="2">2 días</option><option value="3" selected>3 días</option>
+        <option value="5">5 días</option><option value="7">7 días</option>
+      </select>
+      <button class="btn" type="submit" id="ia-btn">Generar plan</button>
+    </form>
+    <div id="ia-msg" class="msg info hidden" role="status"></div>
+    <div id="ia-plan" class="hidden"></div>
+  </div>
+
+  <div class="sec-head" style="margin-bottom:12px"><h2 style="font-size:1.4rem">Mis tareas</h2></div>
+  <ul class="list" id="lista-tareas" aria-live="polite"></ul>
+  <p style="margin-top:22px"><button class="btn ghost sm" id="btn-nfc" hidden>📡 Leer etiqueta NFC</button></p>
+</div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module" src="js/pages/tracker.js"></script>
+</body>
+</html>
