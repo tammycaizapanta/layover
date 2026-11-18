@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo · Layover</title>
+<meta name="description" content="Layover: organiza tu estudio como un viaje. Gana XP, sube de escala y mantén tu racha.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239a6220'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='serif'%3ELy%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Karla:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main>
+
+<div class="wrap">
+  <section class="hero" style="padding-bottom:10px">
+    <div class="eyebrow">Catálogo</div>
+    <h1 style="max-width:18ch">Retos, insignias y escalas</h1>
+    <p class="lead">Todo lo que puedes hacer y ganar en Layover. Agrega un reto a tu viaje con un clic.</p>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="Secciones del catálogo">
+    <button class="tab" role="tab" id="tab-retos" aria-selected="true" aria-controls="panel-retos" data-panel="retos">Retos</button>
+    <button class="tab" role="tab" id="tab-insignias" aria-selected="false" aria-controls="panel-insignias" data-panel="insignias">Insignias</button>
+    <button class="tab" role="tab" id="tab-escalas" aria-selected="false" aria-controls="panel-escalas" data-panel="escalas">Escalas</button>
+  </div>
+
+  <section id="panel-retos" role="tabpanel" aria-labelledby="tab-retos"><div class="grid g3" id="lista-retos"><p class="empty">Cargando retos…</p></div></section>
+  <section id="panel-insignias" role="tabpanel" aria-labelledby="tab-insignias" class="hidden"><div class="grid g3" id="lista-insignias"></div></section>
+  <section id="panel-escalas" role="tabpanel" aria-labelledby="tab-escalas" class="hidden"><div class="grid g3" id="lista-escalas"></div></section>
+</div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="module" src="js/pages/catalogo.js"></script>
+</body>
+</html>
