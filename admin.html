@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel admin · Layover</title>
+<meta name="description" content="Layover: organiza tu estudio como un viaje. Gana XP, sube de escala y mantén tu racha.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239a6220'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='serif'%3ELy%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Karla:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main>
+
+<div class="wrap" style="padding-top:34px">
+  <div id="admin-bloqueo" class="card auth-card hidden"></div>
+  <div id="admin-panel" class="hidden">
+    <div class="sec-head">
+      <div class="kicker">Administración</div>
+      <h2>Panel admin</h2>
+      <p id="admin-hola"></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="label">Mensajes</div><div class="value" id="n-msg">0</div></div>
+      <div class="stat"><div class="label">Usuarios</div><div class="value" id="n-usr">0</div></div>
+      <div class="stat"><div class="label">Retos</div><div class="value" id="n-ret">0</div></div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Secciones del panel">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="ap-mensajes" id="at-mensajes" data-panel="mensajes">Mensajes</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="ap-usuarios" id="at-usuarios" data-panel="usuarios">Usuarios</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="ap-retos" id="at-retos" data-panel="retos">Retos</button>
+    </div>
+
+    <section id="ap-mensajes" role="tabpanel" aria-labelledby="at-mensajes"><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>De</th><th>Mensaje</th><th></th></tr></thead><tbody id="tb-mensajes"></tbody></table></div></section>
+    <section id="ap-usuarios" role="tabpanel" aria-labelledby="at-usuarios" class="hidden"><div class="table-wrap"><table><thead><tr><th>Nombre</th><th>Correo</th><th>XP</th><th>Registro</th></tr></thead><tbody id="tb-usuarios"></tbody></table></div></section>
+    <section id="ap-retos" role="tabpanel" aria-labelledby="at-retos" class="hidden">
+      <form class="card" id="form-reto" style="margin-bottom:18px">
+        <h3 id="reto-titulo-form">Nuevo reto</h3>
+        <input type="hidden" id="r-id">
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label class="f" for="r-emoji">Emoji</label><input id="r-emoji" maxlength="4" value="🎯"></div>
+          <div class="field"><label class="f" for="r-dif">Dificultad</label><select id="r-dif"><option value="facil">Fácil</option><option value="media">Media</option><option value="dificil">Difícil</option></select></div>
+        </div>
+        <div class="field"><label class="f" for="r-titulo">Título</label><input id="r-titulo" maxlength="80" required></div>
+        <div class="field"><label class="f" for="r-desc">Descripción</label><textarea id="r-desc" rows="2" maxlength="300" required></textarea></div>
+        <div id="r-msg" class="msg hidden" role="status"></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="submit">Guardar reto</button><button class="btn ghost" type="button" id="r-cancelar">Limpiar</button></div>
+      </form>
+      <p><button class="btn ghost sm" id="btn-ejemplo">Cargar retos de ejemplo en la base de datos</button></p>
+      <div class="table-wrap"><table><thead><tr><th>Reto</th><th>Dificultad</th><th>Acciones</th></tr></thead><tbody id="tb-retos"></tbody></table></div>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module" src="js/pages/admin.js"></script>
+</body>
+</html>

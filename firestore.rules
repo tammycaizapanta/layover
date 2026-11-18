@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Cambia este correo por el MISMO que pusiste en js/config.js (ADMIN_EMAIL).
+    // Regístrate tú primero con ese correo para que nadie más pueda usarlo.
+    function esAdmin() {
+      return request.auth != null && request.auth.token.email == 'tu-correo@gmail.com';
+    }
+
+    // Progreso de cada usuaria: solo ella (y la admin para ver el ranking/lista).
+    match /usuarios/{uid} {
+      allow read: if request.auth != null && (request.auth.uid == uid || esAdmin());
+      allow create, update: if request.auth != null && request.auth.uid == uid
+                            && request.resource.data.xp is number
+                            && request.resource.data.xp >= 0;
+      allow delete: if esAdmin();
+    }
+
+    // Formulario de contacto: cualquiera escribe (con límites), solo la admin lee y borra.
+    match /mensajes/{id} {
+      allow create: if request.resource.data.keys().hasOnly(['nombre', 'email', 'mensaje', 'fecha'])
+                    && request.resource.data.nombre is string && request.resource.data.nombre.size() > 0 && request.resource.data.nombre.size() <= 80
+                    && request.resource.data.email is string && request.resource.data.email.size() <= 120
+                    && request.resource.data.mensaje is string && request.resource.data.mensaje.size() > 0 && request.resource.data.mensaje.size() <= 1000
+                    && request.resource.data.fecha == request.time;
+      allow read, delete: if esAdmin();
+      allow update: if false;
+    }
+
+    // Retos del catálogo: todos leen, solo la admin edita.
+    match /retos/{id} {
+      allow read: if true;
+      allow write: if esAdmin();
+    }
+  }
+}
