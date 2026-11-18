@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar · Layover</title>
+<meta name="description" content="Layover: organiza tu estudio como un viaje. Gana XP, sube de escala y mantén tu racha.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239a6220'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='serif'%3ELy%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Karla:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main>
+
+<div class="wrap">
+  <div class="card auth-card">
+    <h2 id="auth-titulo" style="margin-bottom:6px">Inicia sesión</h2>
+    <p id="auth-sub" style="color:var(--ink-soft);margin:0 0 18px">Tu progreso se guarda en tu cuenta y te acompaña en cualquier dispositivo.</p>
+    <form id="form-auth" novalidate>
+      <div class="field" id="campo-nombre" hidden><label class="f" for="a-nombre">Nombre</label><input id="a-nombre" type="text" maxlength="60" autocomplete="name"></div>
+      <div class="field"><label class="f" for="a-email">Correo</label><input id="a-email" type="email" autocomplete="email" required></div>
+      <div class="field"><label class="f" for="a-clave">Contraseña</label><input id="a-clave" type="password" minlength="6" autocomplete="current-password" required></div>
+      <div id="a-msg" class="msg hidden" role="alert"></div>
+      <button class="btn" type="submit" id="a-btn" style="width:100%">Entrar</button>
+    </form>
+    <p style="text-align:center;margin:18px 0 0;font-size:.92rem"><span id="a-alt">¿No tienes cuenta?</span> <button class="link-btn" id="a-cambiar" type="button">Regístrate</button></p>
+  </div>
+</div>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script type="module" src="js/pages/login.js"></script>
+</body>
+</html>
