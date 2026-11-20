@@ -45,5 +45,3 @@ Los módulos ES necesitan un servidor local (no abras el .html con doble clic):
 python3 -m http.server 8000
 # abre http://localhost:8000
 ```
-
-Sin configurar Firebase funciona en **modo local** (datos en tu navegador). Pasos para conectarlo y publicarlo: ver `GUIA.md`.
