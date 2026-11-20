@@ -2,10 +2,9 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Cambia este correo por el MISMO que pusiste en js/config.js (ADMIN_EMAIL).
-    // Regístrate tú primero con ese correo para que nadie más pueda usarlo.
+    // Correo de la administradora: debe ser el MISMO que ADMIN_EMAIL en js/config.js.
     function esAdmin() {
-      return request.auth != null && request.auth.token.email == 'tu-correo@gmail.com';
+      return request.auth != null && request.auth.token.email == 'tammycaizapanta95@gmail.com';
     }
 
     // Progreso de cada usuaria: solo ella (y la admin para ver el ranking/lista).
